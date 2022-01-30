@@ -1,0 +1,1562 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.83 build 10920 
+                                                                                               Wed Oct 24 14:59:34 2018
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 10920"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 4 "E:\02-CODING\05-LYCASOFT CODING\02-CODING\24-MATRIX KEYPAD\CODE\MATRIX KEYPAD.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 4 "E:\02-CODING\05-LYCASOFT CODING\02-CODING\24-MATRIX KEYPAD\CODE\MATRIX KEYPAD.c"
+    45  2007  3F3A               	dw 0X3F3A ;#
+    46                           	FNCALL	_main,_Lcd_Intialization
+    47                           	FNCALL	_main,_Lcd_Command
+    48                           	FNCALL	_main,_Lcd_String
+    49                           	FNCALL	_main,_READ_SWITCHES
+    50                           	FNCALL	_READ_SWITCHES,_Lcd_Command
+    51                           	FNCALL	_READ_SWITCHES,_Lcd_Data
+    52                           	FNCALL	_Lcd_Intialization,_Lcd_Command
+    53                           	FNCALL	_Lcd_String,_Lcd_Data
+    54                           	FNROOT	_main
+    55                           	global	_PORTC
+    56                           psect	text112,local,class=CODE,delta=2
+    57                           global __ptext112
+    58  0000                     __ptext112:
+    59  0007                     _PORTC	set	7
+    60                           	global	_PORTD
+    61  0008                     _PORTD	set	8
+    62                           	global	_CARRY
+    63  0018                     _CARRY	set	24
+    64                           	global	_GIE
+    65  005F                     _GIE	set	95
+    66                           	global	_RC0
+    67  0038                     _RC0	set	56
+    68                           	global	_RC1
+    69  0039                     _RC1	set	57
+    70                           	global	_RC2
+    71  003A                     _RC2	set	58
+    72                           	global	_RC4
+    73  003C                     _RC4	set	60
+    74                           	global	_RC5
+    75  003D                     _RC5	set	61
+    76                           	global	_RC6
+    77  003E                     _RC6	set	62
+    78                           	global	_RC7
+    79  003F                     _RC7	set	63
+    80                           	global	_RD2
+    81  0042                     _RD2	set	66
+    82                           	global	_RD3
+    83  0043                     _RD3	set	67
+    84                           	global	_TRISC
+    85  0087                     _TRISC	set	135
+    86                           	global	_TRISD
+    87  0088                     _TRISD	set	136
+    88                           	global	_EEADR
+    89  010D                     _EEADR	set	269
+    90                           	global	_EEDATA
+    91  010C                     _EEDATA	set	268
+    92                           	global	_EECON1
+    93  018C                     _EECON1	set	396
+    94                           	global	_EECON2
+    95  018D                     _EECON2	set	397
+    96                           	global	_RD
+    97  0C60                     _RD	set	3168
+    98                           	global	_WR
+    99  0C61                     _WR	set	3169
+   100                           	global	_WREN
+   101  0C62                     _WREN	set	3170
+   102                           psect	strings,class=STRING,delta=2
+   103                           global __pstrings
+   104  0003                     __pstrings:
+   105                           ;	global	stringdir,stringtab,__stringbase
+   106  0003                     stringtab:
+   107                           ;	String table - string pointers are 1 byte each
+   108  0003                     stringcode:stringdir:
+      + 0003                     stringdir:	
+   109  0003  3000               movlw high(stringdir)
+   110  0004  008A               movwf pclath
+   111  0005  0804               movf fsr,w
+   112  0006  0A84               incf fsr
+   113  0007  0782               	addwf pc
+   114  0008                     __stringbase:
+   115  0008  3400               	retlw	0
+   116                           psect	strings
+   117                           	
+   118  0009                     STR_1:	
+   119  0009  344C               	retlw	76	;'L'
+   120  000A  3459               	retlw	89	;'Y'
+   121  000B  3443               	retlw	67	;'C'
+   122  000C  3441               	retlw	65	;'A'
+   123  000D  3420               	retlw	32	;' '
+   124  000E  3453               	retlw	83	;'S'
+   125  000F  344F               	retlw	79	;'O'
+   126  0010  3446               	retlw	70	;'F'
+   127  0011  3454               	retlw	84	;'T'
+   128  0012  3400               	retlw	0
+   129                           psect	strings
+   130                           	
+   131  0013                     STR_2:	
+   132  0013  344B               	retlw	75	;'K'
+   133  0014  3445               	retlw	69	;'E'
+   134  0015  3450               	retlw	80	;'P'
+   135  0016  3444               	retlw	68	;'D'
+   136  0017  3441               	retlw	65	;'A'
+   137  0018  3444               	retlw	68	;'D'
+   138  0019  343A               	retlw	58	;':'
+   139  001A  3400               	retlw	0
+   140                           psect	strings
+   141                           	file	"MATRIX KEYPAD.as"
+   142                           	line	#
+   143                           psect cinit,class=CODE,delta=2
+   144                           global start_initialization
+   145  0618                     start_initialization:
+   146                           
+   147                           psect cinit,class=CODE,delta=2
+   148                           global end_of_initialization
+   149                           
+   150                           ;End of C runtime variable initialization code
+   151                           
+   152  0618                     end_of_initialization:
+   153  0618  0183               clrf status
+   154  0619  120A  118A  2EAE   ljmp _main	;jump to C main() function
+   155                           psect	cstackCOMMON,class=COMMON,space=1
+   156                           global __pcstackCOMMON
+   157  0070                     __pcstackCOMMON:
+   158                           	global	?_Lcd_Command
+   159  0070                     ?_Lcd_Command:	; 0 bytes @ 0x0
+   160                           	global	??_Lcd_Command
+   161  0070                     ??_Lcd_Command:	; 0 bytes @ 0x0
+   162                           	global	?_Lcd_Data
+   163  0070                     ?_Lcd_Data:	; 0 bytes @ 0x0
+   164                           	global	??_Lcd_Data
+   165  0070                     ??_Lcd_Data:	; 0 bytes @ 0x0
+   166                           	global	?_Lcd_String
+   167  0070                     ?_Lcd_String:	; 0 bytes @ 0x0
+   168                           	global	?_Lcd_Intialization
+   169  0070                     ?_Lcd_Intialization:	; 0 bytes @ 0x0
+   170                           	global	?_main
+   171  0070                     ?_main:	; 0 bytes @ 0x0
+   172                           	global	?_READ_SWITCHES
+   173  0070                     ?_READ_SWITCHES:	; 1 bytes @ 0x0
+   174  0070                     	ds	2
+   175                           	global	Lcd_Command@cmd
+   176  0072                     Lcd_Command@cmd:	; 1 bytes @ 0x2
+   177                           	global	Lcd_Data@Data
+   178  0072                     Lcd_Data@Data:	; 1 bytes @ 0x2
+   179  0072                     	ds	1
+   180                           	global	??_Lcd_String
+   181  0073                     ??_Lcd_String:	; 0 bytes @ 0x3
+   182                           	global	??_Lcd_Intialization
+   183  0073                     ??_Lcd_Intialization:	; 0 bytes @ 0x3
+   184                           	global	??_READ_SWITCHES
+   185  0073                     ??_READ_SWITCHES:	; 0 bytes @ 0x3
+   186  0073                     	ds	1
+   187                           	global	Lcd_String@Str
+   188  0074                     Lcd_String@Str:	; 1 bytes @ 0x4
+   189  0074                     	ds	1
+   190                           	global	??_main
+   191  0075                     ??_main:	; 0 bytes @ 0x5
+   192 ;;Data sizes: Strings 18, constant 0, data 0, bss 0, persistent 0 stack 0
+   193 ;;Auto spaces:   Size  Autos    Used
+   194 ;; COMMON          14      5       5
+   195 ;; BANK0           80      0       0
+   196 ;; BANK1           80      0       0
+   197 ;; BANK3           96      0       0
+   198 ;; BANK2           96      0       0
+   199                           
+   200 ;;
+   201 ;; Pointer list with targets:
+   202                           
+   203 ;; Lcd_String@Str	PTR const unsigned char  size(1) Largest target is 10
+   204 ;;		 -> STR_2(CODE[8]), STR_1(CODE[10]), 
+   205 ;;
+   206                           
+   207                           
+   208 ;;
+   209 ;; Critical Paths under _main in COMMON
+   210 ;;
+   211 ;;   _main->_Lcd_String
+   212 ;;   _READ_SWITCHES->_Lcd_Command
+   213 ;;   _READ_SWITCHES->_Lcd_Data
+   214 ;;   _Lcd_Intialization->_Lcd_Command
+   215 ;;   _Lcd_String->_Lcd_Data
+   216 ;;
+   217 ;; Critical Paths under _main in BANK0
+   218 ;;
+   219 ;;   None.
+   220 ;;
+   221 ;; Critical Paths under _main in BANK1
+   222 ;;
+   223 ;;   None.
+   224 ;;
+   225 ;; Critical Paths under _main in BANK3
+   226 ;;
+   227 ;;   None.
+   228 ;;
+   229 ;; Critical Paths under _main in BANK2
+   230 ;;
+   231 ;;   None.
+   232                           
+   233 ;;
+   234 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   235 ;;
+   236                           
+   237 ;;
+   238 ;;Call Graph Tables:
+   239 ;;
+   240 ;; ---------------------------------------------------------------------------------
+   241 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   242 ;; ---------------------------------------------------------------------------------
+   243 ;; (0) _main                                                 0     0      0     180
+   244 ;;                  _Lcd_Intialization
+   245 ;;                        _Lcd_Command
+   246 ;;                         _Lcd_String
+   247 ;;                      _READ_SWITCHES
+   248 ;; ---------------------------------------------------------------------------------
+   249 ;; (1) _READ_SWITCHES                                        0     0      0      60
+   250 ;;                        _Lcd_Command
+   251 ;;                           _Lcd_Data
+   252 ;; ---------------------------------------------------------------------------------
+   253 ;; (1) _Lcd_Intialization                                    0     0      0      30
+   254 ;;                        _Lcd_Command
+   255 ;; ---------------------------------------------------------------------------------
+   256 ;; (1) _Lcd_String                                           2     2      0      60
+   257 ;;                                              3 COMMON     2     2      0
+   258 ;;                           _Lcd_Data
+   259 ;; ---------------------------------------------------------------------------------
+   260 ;; (2) _Lcd_Data                                             3     3      0      30
+   261 ;;                                              0 COMMON     3     3      0
+   262 ;; ---------------------------------------------------------------------------------
+   263 ;; (2) _Lcd_Command                                          3     3      0      30
+   264 ;;                                              0 COMMON     3     3      0
+   265 ;; ---------------------------------------------------------------------------------
+   266 ;; Estimated maximum stack depth 2
+   267 ;; ---------------------------------------------------------------------------------
+   268                           
+   269 ;; Call Graph Graphs:
+   270                           
+   271 ;; _main (ROOT)
+   272 ;;   _Lcd_Intialization
+   273 ;;     _Lcd_Command
+   274 ;;   _Lcd_Command
+   275 ;;   _Lcd_String
+   276 ;;     _Lcd_Data
+   277 ;;   _READ_SWITCHES
+   278 ;;     _Lcd_Command
+   279 ;;     _Lcd_Data
+   280 ;;
+   281                           
+   282 ;; Address spaces:
+   283                           
+   284 ;;Name               Size   Autos  Total    Cost      Usage
+   285 ;;BITCOMMON            E      0       0       0        0.0%
+   286 ;;EEDATA             100      0       0       0        0.0%
+   287 ;;NULL                 0      0       0       0        0.0%
+   288 ;;CODE                 0      0       0       0        0.0%
+   289 ;;COMMON               E      5       5       1       35.7%
+   290 ;;BITSFR0              0      0       0       1        0.0%
+   291 ;;SFR0                 0      0       0       1        0.0%
+   292 ;;BITSFR1              0      0       0       2        0.0%
+   293 ;;SFR1                 0      0       0       2        0.0%
+   294 ;;STACK                0      0       2       2        0.0%
+   295 ;;ABS                  0      0       0       3        0.0%
+   296 ;;BITBANK0            50      0       0       4        0.0%
+   297 ;;BITSFR3              0      0       0       4        0.0%
+   298 ;;SFR3                 0      0       0       4        0.0%
+   299 ;;BANK0               50      0       0       5        0.0%
+   300 ;;BITSFR2              0      0       0       5        0.0%
+   301 ;;SFR2                 0      0       0       5        0.0%
+   302 ;;BITBANK1            50      0       0       6        0.0%
+   303 ;;BANK1               50      0       0       7        0.0%
+   304 ;;BITBANK3            60      0       0       8        0.0%
+   305 ;;BANK3               60      0       0       9        0.0%
+   306 ;;BITBANK2            60      0       0      10        0.0%
+   307 ;;BANK2               60      0       0      11        0.0%
+   308 ;;DATA                 0      0       0      12        0.0%
+   309                           
+   310                           	global	_main
+   311                           psect	maintext,global,class=CODE,delta=2
+   312                           global __pmaintext
+   313  06AE                     __pmaintext:
+   314                           
+   315 ;; *************** function _main *****************
+   316 ;; Defined at:
+   317 ;;		line 136 in file "E:\02-CODING\05-LYCASOFT CODING\02-CODING\24-MATRIX KEYPAD\CODE\MATRIX KEYPAD.c"
+   318 ;; Parameters:    Size  Location     Type
+   319 ;;		None
+   320 ;; Auto vars:     Size  Location     Type
+   321 ;;		None
+   322 ;; Return value:  Size  Location     Type
+   323 ;;		None               void
+   324 ;; Registers used:
+   325 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   326 ;; Tracked objects:
+   327 ;;		On entry : 17F/0
+   328 ;;		On exit  : 0/0
+   329 ;;		Unchanged: 0/0
+   330 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   331 ;;      Params:         0       0       0       0       0
+   332 ;;      Locals:         0       0       0       0       0
+   333 ;;      Temps:          0       0       0       0       0
+   334 ;;      Totals:         0       0       0       0       0
+   335 ;;Total ram usage:        0 bytes
+   336 ;; Hardware stack levels required when called:    2
+   337 ;; This function calls:
+   338 ;;		_Lcd_Intialization
+   339 ;;		_Lcd_Command
+   340 ;;		_Lcd_String
+   341 ;;		_READ_SWITCHES
+   342 ;; This function is called by:
+   343 ;;		Startup code after reset
+   344 ;; This function uses a non-reentrant model
+   345 ;;
+   346                           psect	maintext
+   347                           	file	"E:\02-CODING\05-LYCASOFT CODING\02-CODING\24-MATRIX KEYPAD\CODE\MATRIX KEYPAD.c"
+   348                           	line	136
+   349                           	global	__size_of_main
+   350  0035                     	__size_of_main	equ	__end_of_main-_main
+   351                           	
+   352  06AE                     _main:	
+   353                           	opt	stack 6
+   354                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   355                           	line	137
+   356                           	
+   357  06AE                     l2756:	
+   358                           ;MATRIX KEYPAD.c: 137: TRISD=0X00;
+   359  06AE  1683               	bsf	status, 5	;RP0=1, select bank1
+   360  06AF  1303               	bcf	status, 6	;RP1=0, select bank1
+   361  06B0  0188               	clrf	(136)^080h	;volatile
+   362                           	line	138
+   363                           ;MATRIX KEYPAD.c: 138: PORTD=0X00;
+   364  06B1  1283               	bcf	status, 5	;RP0=0, select bank0
+   365  06B2  1303               	bcf	status, 6	;RP1=0, select bank0
+   366  06B3  0188               	clrf	(8)	;volatile
+   367                           	line	139
+   368                           	
+   369  06B4                     l2758:	
+   370                           ;MATRIX KEYPAD.c: 139: TRISC=0XF0;
+   371  06B4  30F0               	movlw	(0F0h)
+   372  06B5  1683               	bsf	status, 5	;RP0=1, select bank1
+   373  06B6  1303               	bcf	status, 6	;RP1=0, select bank1
+   374  06B7  0087               	movwf	(135)^080h	;volatile
+   375                           	line	140
+   376                           	
+   377  06B8                     l2760:	
+   378                           ;MATRIX KEYPAD.c: 140: PORTC=0X00;
+   379  06B8  1283               	bcf	status, 5	;RP0=0, select bank0
+   380  06B9  1303               	bcf	status, 6	;RP1=0, select bank0
+   381  06BA  0187               	clrf	(7)	;volatile
+   382                           	line	142
+   383                           	
+   384  06BB                     l2762:	
+   385                           ;MATRIX KEYPAD.c: 142: Lcd_Intialization();
+   386  06BB  120A  118A  261C   	fcall	_Lcd_Intialization
+              120A  118A         
+   387                           	line	144
+   388                           	
+   389  06C0                     l2764:	
+   390                           ;MATRIX KEYPAD.c: 144: Lcd_Command(0x80);
+   391  06C0  3080               	movlw	(080h)
+   392  06C1  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+   393                           	line	145
+   394                           	
+   395  06C6                     l2766:	
+   396                           ;MATRIX KEYPAD.c: 145: Lcd_String("LYCA SOFT");
+   397  06C6  3001               	movlw	((STR_1-__stringbase))&0ffh
+   398  06C7  120A  118A  262F   	fcall	_Lcd_String
+              120A  118A         
+   399                           	line	147
+   400                           	
+   401  06CC                     l2768:	
+   402                           ;MATRIX KEYPAD.c: 147: Lcd_Command(0xC0);
+   403  06CC  30C0               	movlw	(0C0h)
+   404  06CD  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+   405                           	line	148
+   406                           	
+   407  06D2                     l2770:	
+   408                           ;MATRIX KEYPAD.c: 148: Lcd_String("KEPDAD:");
+   409  06D2  300B               	movlw	((STR_2-__stringbase))&0ffh
+   410  06D3  120A  118A  262F   	fcall	_Lcd_String
+              120A  118A         
+   411  06D8  2ED9               	goto	l2772
+   412                           	line	150
+   413                           ;MATRIX KEYPAD.c: 150: while(1)
+   414                           	
+   415  06D9                     l720:	
+   416                           	line	152
+   417                           	
+   418  06D9                     l2772:	
+   419                           ;MATRIX KEYPAD.c: 151: {
+   420                           ;MATRIX KEYPAD.c: 152: READ_SWITCHES();
+   421  06D9  120A  118A  26E3   	fcall	_READ_SWITCHES
+              120A  118A         
+   422  06DE  2ED9               	goto	l2772
+   423                           	line	153
+   424                           	
+   425  06DF                     l721:	
+   426                           	line	150
+   427  06DF  2ED9               	goto	l2772
+   428                           	
+   429  06E0                     l722:	
+   430                           	line	154
+   431                           	
+   432  06E0                     l723:	
+   433                           	global	start
+   434  06E0  120A  118A  2800   	ljmp	start
+   435                           	opt stack 0
+   436                           GLOBAL	__end_of_main
+   437  06E3                     	__end_of_main:
+   438 ;; =============== function _main ends ============
+   439                           
+   440                           	signat	_main,88
+   441                           	global	_READ_SWITCHES
+   442                           psect	text113,local,class=CODE,delta=2
+   443                           global __ptext113
+   444  06E3                     __ptext113:
+   445                           
+   446 ;; *************** function _READ_SWITCHES *****************
+   447 ;; Defined at:
+   448 ;;		line 58 in file "E:\02-CODING\05-LYCASOFT CODING\02-CODING\24-MATRIX KEYPAD\CODE\MATRIX KEYPAD.c"
+   449 ;; Parameters:    Size  Location     Type
+   450 ;;		None
+   451 ;; Auto vars:     Size  Location     Type
+   452 ;;		None
+   453 ;; Return value:  Size  Location     Type
+   454 ;;                  1    wreg      unsigned char 
+   455 ;; Registers used:
+   456 ;;		wreg, status,2, status,0, pclath, cstack
+   457 ;; Tracked objects:
+   458 ;;		On entry : 0/0
+   459 ;;		On exit  : 0/0
+   460 ;;		Unchanged: 0/0
+   461 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   462 ;;      Params:         0       0       0       0       0
+   463 ;;      Locals:         0       0       0       0       0
+   464 ;;      Temps:          0       0       0       0       0
+   465 ;;      Totals:         0       0       0       0       0
+   466 ;;Total ram usage:        0 bytes
+   467 ;; Hardware stack levels used:    1
+   468 ;; Hardware stack levels required when called:    1
+   469 ;; This function calls:
+   470 ;;		_Lcd_Command
+   471 ;;		_Lcd_Data
+   472 ;; This function is called by:
+   473 ;;		_main
+   474 ;; This function uses a non-reentrant model
+   475 ;;
+   476                           psect	text113
+   477                           	file	"E:\02-CODING\05-LYCASOFT CODING\02-CODING\24-MATRIX KEYPAD\CODE\MATRIX KEYPAD.c"
+   478                           	line	58
+   479                           	global	__size_of_READ_SWITCHES
+   480  011D                     	__size_of_READ_SWITCHES	equ	__end_of_READ_SWITCHES-_READ_SWITCHES
+   481                           	
+   482  06E3                     _READ_SWITCHES:	
+   483                           	opt	stack 6
+   484                           ; Regs used in _READ_SWITCHES: [wreg+status,2+status,0+pclath+cstack]
+   485                           	line	59
+   486                           ;MATRIX KEYPAD.c: 59: while(1)
+   487                           	
+   488  06E3                     l702:	
+   489                           	line	61
+   490                           	
+   491  06E3                     l2678:	
+   492                           ;MATRIX KEYPAD.c: 60: {
+   493                           ;MATRIX KEYPAD.c: 61: PORTC = 0x04;
+   494  06E3  3004               	movlw	(04h)
+   495  06E4  1283               	bcf	status, 5	;RP0=0, select bank0
+   496  06E5  1303               	bcf	status, 6	;RP1=0, select bank0
+   497  06E6  0087               	movwf	(7)	;volatile
+   498                           	line	63
+   499                           	
+   500  06E7                     l2680:	
+   501                           ;MATRIX KEYPAD.c: 62: {
+   502                           ;MATRIX KEYPAD.c: 63: if ((RC2==1)&&(RC4==1))
+   503  06E7  1D07               	btfss	(58/8),(58)&7
+   504  06E8  2EEA               	goto	u2251
+   505  06E9  2EEB               	goto	u2250
+   506  06EA                     u2251:
+   507  06EA  2EFC               	goto	l2686
+   508  06EB                     u2250:
+   509                           	
+   510  06EB                     l2682:	
+   511  06EB  1E07               	btfss	(60/8),(60)&7
+   512  06EC  2EEE               	goto	u2261
+   513  06ED  2EEF               	goto	u2260
+   514  06EE                     u2261:
+   515  06EE  2EFC               	goto	l2686
+   516  06EF                     u2260:
+   517                           	line	65
+   518                           	
+   519  06EF                     l2684:	
+   520                           ;MATRIX KEYPAD.c: 64: {
+   521                           ;MATRIX KEYPAD.c: 65: Lcd_Command(0XC7);
+   522  06EF  30C7               	movlw	(0C7h)
+   523  06F0  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+   524                           	line	66
+   525                           ;MATRIX KEYPAD.c: 66: Lcd_Data('1');
+   526  06F5  3031               	movlw	(031h)
+   527  06F6  120A  118A  267F   	fcall	_Lcd_Data
+              120A  118A         
+   528  06FB  2EFC               	goto	l2686
+   529                           	line	67
+   530                           	
+   531  06FC                     l703:	
+   532                           	line	68
+   533                           	
+   534  06FC                     l2686:	
+   535                           ;MATRIX KEYPAD.c: 67: }
+   536                           ;MATRIX KEYPAD.c: 68: if ((RC2==1)&&(RC5==1))
+   537  06FC  1283               	bcf	status, 5	;RP0=0, select bank0
+   538  06FD  1303               	bcf	status, 6	;RP1=0, select bank0
+   539  06FE  1D07               	btfss	(58/8),(58)&7
+   540  06FF  2F01               	goto	u2271
+   541  0700  2F02               	goto	u2270
+   542  0701                     u2271:
+   543  0701  2F13               	goto	l2692
+   544  0702                     u2270:
+   545                           	
+   546  0702                     l2688:	
+   547  0702  1E87               	btfss	(61/8),(61)&7
+   548  0703  2F05               	goto	u2281
+   549  0704  2F06               	goto	u2280
+   550  0705                     u2281:
+   551  0705  2F13               	goto	l2692
+   552  0706                     u2280:
+   553                           	line	70
+   554                           	
+   555  0706                     l2690:	
+   556                           ;MATRIX KEYPAD.c: 69: {
+   557                           ;MATRIX KEYPAD.c: 70: Lcd_Command(0XC7);
+   558  0706  30C7               	movlw	(0C7h)
+   559  0707  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+   560                           	line	71
+   561                           ;MATRIX KEYPAD.c: 71: Lcd_Data('4');
+   562  070C  3034               	movlw	(034h)
+   563  070D  120A  118A  267F   	fcall	_Lcd_Data
+              120A  118A         
+   564  0712  2F13               	goto	l2692
+   565                           	line	72
+   566                           	
+   567  0713                     l704:	
+   568                           	line	73
+   569                           	
+   570  0713                     l2692:	
+   571                           ;MATRIX KEYPAD.c: 72: }
+   572                           ;MATRIX KEYPAD.c: 73: if ((RC2==1)&&(RC6==1))
+   573  0713  1283               	bcf	status, 5	;RP0=0, select bank0
+   574  0714  1303               	bcf	status, 6	;RP1=0, select bank0
+   575  0715  1D07               	btfss	(58/8),(58)&7
+   576  0716  2F18               	goto	u2291
+   577  0717  2F19               	goto	u2290
+   578  0718                     u2291:
+   579  0718  2F2A               	goto	l2698
+   580  0719                     u2290:
+   581                           	
+   582  0719                     l2694:	
+   583  0719  1F07               	btfss	(62/8),(62)&7
+   584  071A  2F1C               	goto	u2301
+   585  071B  2F1D               	goto	u2300
+   586  071C                     u2301:
+   587  071C  2F2A               	goto	l2698
+   588  071D                     u2300:
+   589                           	line	75
+   590                           	
+   591  071D                     l2696:	
+   592                           ;MATRIX KEYPAD.c: 74: {
+   593                           ;MATRIX KEYPAD.c: 75: Lcd_Command(0XC7);
+   594  071D  30C7               	movlw	(0C7h)
+   595  071E  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+   596                           	line	76
+   597                           ;MATRIX KEYPAD.c: 76: Lcd_Data('7');
+   598  0723  3037               	movlw	(037h)
+   599  0724  120A  118A  267F   	fcall	_Lcd_Data
+              120A  118A         
+   600  0729  2F2A               	goto	l2698
+   601                           	line	77
+   602                           	
+   603  072A                     l705:	
+   604                           	line	78
+   605                           	
+   606  072A                     l2698:	
+   607                           ;MATRIX KEYPAD.c: 77: }
+   608                           ;MATRIX KEYPAD.c: 78: if ((RC2==1)&&(RC7==1))
+   609  072A  1283               	bcf	status, 5	;RP0=0, select bank0
+   610  072B  1303               	bcf	status, 6	;RP1=0, select bank0
+   611  072C  1D07               	btfss	(58/8),(58)&7
+   612  072D  2F2F               	goto	u2311
+   613  072E  2F30               	goto	u2310
+   614  072F                     u2311:
+   615  072F  2F41               	goto	l2704
+   616  0730                     u2310:
+   617                           	
+   618  0730                     l2700:	
+   619  0730  1F87               	btfss	(63/8),(63)&7
+   620  0731  2F33               	goto	u2321
+   621  0732  2F34               	goto	u2320
+   622  0733                     u2321:
+   623  0733  2F41               	goto	l2704
+   624  0734                     u2320:
+   625                           	line	80
+   626                           	
+   627  0734                     l2702:	
+   628                           ;MATRIX KEYPAD.c: 79: {
+   629                           ;MATRIX KEYPAD.c: 80: Lcd_Command(0XC7);
+   630  0734  30C7               	movlw	(0C7h)
+   631  0735  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+   632                           	line	81
+   633                           ;MATRIX KEYPAD.c: 81: Lcd_Data('*');
+   634  073A  302A               	movlw	(02Ah)
+   635  073B  120A  118A  267F   	fcall	_Lcd_Data
+              120A  118A         
+   636  0740  2F41               	goto	l2704
+   637                           	line	82
+   638                           	
+   639  0741                     l706:	
+   640                           	line	85
+   641                           	
+   642  0741                     l2704:	
+   643                           ;MATRIX KEYPAD.c: 82: }
+   644                           ;MATRIX KEYPAD.c: 83: }
+   645                           ;MATRIX KEYPAD.c: 85: PORTC = 0x02;
+   646  0741  3002               	movlw	(02h)
+   647  0742  1283               	bcf	status, 5	;RP0=0, select bank0
+   648  0743  1303               	bcf	status, 6	;RP1=0, select bank0
+   649  0744  0087               	movwf	(7)	;volatile
+   650                           	line	87
+   651                           	
+   652  0745                     l2706:	
+   653                           ;MATRIX KEYPAD.c: 86: {
+   654                           ;MATRIX KEYPAD.c: 87: if ((RC1==1)&&(RC4==1))
+   655  0745  1C87               	btfss	(57/8),(57)&7
+   656  0746  2F48               	goto	u2331
+   657  0747  2F49               	goto	u2330
+   658  0748                     u2331:
+   659  0748  2F5A               	goto	l2712
+   660  0749                     u2330:
+   661                           	
+   662  0749                     l2708:	
+   663  0749  1E07               	btfss	(60/8),(60)&7
+   664  074A  2F4C               	goto	u2341
+   665  074B  2F4D               	goto	u2340
+   666  074C                     u2341:
+   667  074C  2F5A               	goto	l2712
+   668  074D                     u2340:
+   669                           	line	89
+   670                           	
+   671  074D                     l2710:	
+   672                           ;MATRIX KEYPAD.c: 88: {
+   673                           ;MATRIX KEYPAD.c: 89: Lcd_Command(0XC7);
+   674  074D  30C7               	movlw	(0C7h)
+   675  074E  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+   676                           	line	90
+   677                           ;MATRIX KEYPAD.c: 90: Lcd_Data('2');
+   678  0753  3032               	movlw	(032h)
+   679  0754  120A  118A  267F   	fcall	_Lcd_Data
+              120A  118A         
+   680  0759  2F5A               	goto	l2712
+   681                           	line	91
+   682                           	
+   683  075A                     l707:	
+   684                           	line	92
+   685                           	
+   686  075A                     l2712:	
+   687                           ;MATRIX KEYPAD.c: 91: }
+   688                           ;MATRIX KEYPAD.c: 92: if ((RC1==1)&&(RC5==1))
+   689  075A  1283               	bcf	status, 5	;RP0=0, select bank0
+   690  075B  1303               	bcf	status, 6	;RP1=0, select bank0
+   691  075C  1C87               	btfss	(57/8),(57)&7
+   692  075D  2F5F               	goto	u2351
+   693  075E  2F60               	goto	u2350
+   694  075F                     u2351:
+   695  075F  2F71               	goto	l2718
+   696  0760                     u2350:
+   697                           	
+   698  0760                     l2714:	
+   699  0760  1E87               	btfss	(61/8),(61)&7
+   700  0761  2F63               	goto	u2361
+   701  0762  2F64               	goto	u2360
+   702  0763                     u2361:
+   703  0763  2F71               	goto	l2718
+   704  0764                     u2360:
+   705                           	line	94
+   706                           	
+   707  0764                     l2716:	
+   708                           ;MATRIX KEYPAD.c: 93: {
+   709                           ;MATRIX KEYPAD.c: 94: Lcd_Command(0XC7);
+   710  0764  30C7               	movlw	(0C7h)
+   711  0765  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+   712                           	line	95
+   713                           ;MATRIX KEYPAD.c: 95: Lcd_Data('5');
+   714  076A  3035               	movlw	(035h)
+   715  076B  120A  118A  267F   	fcall	_Lcd_Data
+              120A  118A         
+   716  0770  2F71               	goto	l2718
+   717                           	line	96
+   718                           	
+   719  0771                     l708:	
+   720                           	line	97
+   721                           	
+   722  0771                     l2718:	
+   723                           ;MATRIX KEYPAD.c: 96: }
+   724                           ;MATRIX KEYPAD.c: 97: if ((RC1==1)&&(RC6==1))
+   725  0771  1283               	bcf	status, 5	;RP0=0, select bank0
+   726  0772  1303               	bcf	status, 6	;RP1=0, select bank0
+   727  0773  1C87               	btfss	(57/8),(57)&7
+   728  0774  2F76               	goto	u2371
+   729  0775  2F77               	goto	u2370
+   730  0776                     u2371:
+   731  0776  2F88               	goto	l2724
+   732  0777                     u2370:
+   733                           	
+   734  0777                     l2720:	
+   735  0777  1F07               	btfss	(62/8),(62)&7
+   736  0778  2F7A               	goto	u2381
+   737  0779  2F7B               	goto	u2380
+   738  077A                     u2381:
+   739  077A  2F88               	goto	l2724
+   740  077B                     u2380:
+   741                           	line	99
+   742                           	
+   743  077B                     l2722:	
+   744                           ;MATRIX KEYPAD.c: 98: {
+   745                           ;MATRIX KEYPAD.c: 99: Lcd_Command(0XC7);
+   746  077B  30C7               	movlw	(0C7h)
+   747  077C  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+   748                           	line	100
+   749                           ;MATRIX KEYPAD.c: 100: Lcd_Data('8');
+   750  0781  3038               	movlw	(038h)
+   751  0782  120A  118A  267F   	fcall	_Lcd_Data
+              120A  118A         
+   752  0787  2F88               	goto	l2724
+   753                           	line	101
+   754                           	
+   755  0788                     l709:	
+   756                           	line	102
+   757                           	
+   758  0788                     l2724:	
+   759                           ;MATRIX KEYPAD.c: 101: }
+   760                           ;MATRIX KEYPAD.c: 102: if ((RC1==1)&&(RC7==1))
+   761  0788  1283               	bcf	status, 5	;RP0=0, select bank0
+   762  0789  1303               	bcf	status, 6	;RP1=0, select bank0
+   763  078A  1C87               	btfss	(57/8),(57)&7
+   764  078B  2F8D               	goto	u2391
+   765  078C  2F8E               	goto	u2390
+   766  078D                     u2391:
+   767  078D  2F9F               	goto	l2730
+   768  078E                     u2390:
+   769                           	
+   770  078E                     l2726:	
+   771  078E  1F87               	btfss	(63/8),(63)&7
+   772  078F  2F91               	goto	u2401
+   773  0790  2F92               	goto	u2400
+   774  0791                     u2401:
+   775  0791  2F9F               	goto	l2730
+   776  0792                     u2400:
+   777                           	line	104
+   778                           	
+   779  0792                     l2728:	
+   780                           ;MATRIX KEYPAD.c: 103: {
+   781                           ;MATRIX KEYPAD.c: 104: Lcd_Command(0XC7);
+   782  0792  30C7               	movlw	(0C7h)
+   783  0793  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+   784                           	line	105
+   785                           ;MATRIX KEYPAD.c: 105: Lcd_Data('0');
+   786  0798  3030               	movlw	(030h)
+   787  0799  120A  118A  267F   	fcall	_Lcd_Data
+              120A  118A         
+   788  079E  2F9F               	goto	l2730
+   789                           	line	106
+   790                           	
+   791  079F                     l710:	
+   792                           	line	109
+   793                           	
+   794  079F                     l2730:	
+   795                           ;MATRIX KEYPAD.c: 106: }
+   796                           ;MATRIX KEYPAD.c: 107: }
+   797                           ;MATRIX KEYPAD.c: 109: PORTC = 0x01;
+   798  079F  3001               	movlw	(01h)
+   799  07A0  1283               	bcf	status, 5	;RP0=0, select bank0
+   800  07A1  1303               	bcf	status, 6	;RP1=0, select bank0
+   801  07A2  0087               	movwf	(7)	;volatile
+   802                           	line	111
+   803                           	
+   804  07A3                     l2732:	
+   805                           ;MATRIX KEYPAD.c: 110: {
+   806                           ;MATRIX KEYPAD.c: 111: if ((RC0==1)&&(RC4==1))
+   807  07A3  1C07               	btfss	(56/8),(56)&7
+   808  07A4  2FA6               	goto	u2411
+   809  07A5  2FA7               	goto	u2410
+   810  07A6                     u2411:
+   811  07A6  2FB8               	goto	l2738
+   812  07A7                     u2410:
+   813                           	
+   814  07A7                     l2734:	
+   815  07A7  1E07               	btfss	(60/8),(60)&7
+   816  07A8  2FAA               	goto	u2421
+   817  07A9  2FAB               	goto	u2420
+   818  07AA                     u2421:
+   819  07AA  2FB8               	goto	l2738
+   820  07AB                     u2420:
+   821                           	line	113
+   822                           	
+   823  07AB                     l2736:	
+   824                           ;MATRIX KEYPAD.c: 112: {
+   825                           ;MATRIX KEYPAD.c: 113: Lcd_Command(0XC7);
+   826  07AB  30C7               	movlw	(0C7h)
+   827  07AC  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+   828                           	line	114
+   829                           ;MATRIX KEYPAD.c: 114: Lcd_Data('3');
+   830  07B1  3033               	movlw	(033h)
+   831  07B2  120A  118A  267F   	fcall	_Lcd_Data
+              120A  118A         
+   832  07B7  2FB8               	goto	l2738
+   833                           	line	115
+   834                           	
+   835  07B8                     l711:	
+   836                           	line	116
+   837                           	
+   838  07B8                     l2738:	
+   839                           ;MATRIX KEYPAD.c: 115: }
+   840                           ;MATRIX KEYPAD.c: 116: if ((RC0==1)&&(RC5==1))
+   841  07B8  1283               	bcf	status, 5	;RP0=0, select bank0
+   842  07B9  1303               	bcf	status, 6	;RP1=0, select bank0
+   843  07BA  1C07               	btfss	(56/8),(56)&7
+   844  07BB  2FBD               	goto	u2431
+   845  07BC  2FBE               	goto	u2430
+   846  07BD                     u2431:
+   847  07BD  2FCF               	goto	l2744
+   848  07BE                     u2430:
+   849                           	
+   850  07BE                     l2740:	
+   851  07BE  1E87               	btfss	(61/8),(61)&7
+   852  07BF  2FC1               	goto	u2441
+   853  07C0  2FC2               	goto	u2440
+   854  07C1                     u2441:
+   855  07C1  2FCF               	goto	l2744
+   856  07C2                     u2440:
+   857                           	line	118
+   858                           	
+   859  07C2                     l2742:	
+   860                           ;MATRIX KEYPAD.c: 117: {
+   861                           ;MATRIX KEYPAD.c: 118: Lcd_Command(0XC7);
+   862  07C2  30C7               	movlw	(0C7h)
+   863  07C3  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+   864                           	line	119
+   865                           ;MATRIX KEYPAD.c: 119: Lcd_Data('6');
+   866  07C8  3036               	movlw	(036h)
+   867  07C9  120A  118A  267F   	fcall	_Lcd_Data
+              120A  118A         
+   868  07CE  2FCF               	goto	l2744
+   869                           	line	120
+   870                           	
+   871  07CF                     l712:	
+   872                           	line	121
+   873                           	
+   874  07CF                     l2744:	
+   875                           ;MATRIX KEYPAD.c: 120: }
+   876                           ;MATRIX KEYPAD.c: 121: if ((RC0==1)&&(RC6==1))
+   877  07CF  1283               	bcf	status, 5	;RP0=0, select bank0
+   878  07D0  1303               	bcf	status, 6	;RP1=0, select bank0
+   879  07D1  1C07               	btfss	(56/8),(56)&7
+   880  07D2  2FD4               	goto	u2451
+   881  07D3  2FD5               	goto	u2450
+   882  07D4                     u2451:
+   883  07D4  2FE6               	goto	l2750
+   884  07D5                     u2450:
+   885                           	
+   886  07D5                     l2746:	
+   887  07D5  1F07               	btfss	(62/8),(62)&7
+   888  07D6  2FD8               	goto	u2461
+   889  07D7  2FD9               	goto	u2460
+   890  07D8                     u2461:
+   891  07D8  2FE6               	goto	l2750
+   892  07D9                     u2460:
+   893                           	line	123
+   894                           	
+   895  07D9                     l2748:	
+   896                           ;MATRIX KEYPAD.c: 122: {
+   897                           ;MATRIX KEYPAD.c: 123: Lcd_Command(0XC7);
+   898  07D9  30C7               	movlw	(0C7h)
+   899  07DA  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+   900                           	line	124
+   901                           ;MATRIX KEYPAD.c: 124: Lcd_Data('9');
+   902  07DF  3039               	movlw	(039h)
+   903  07E0  120A  118A  267F   	fcall	_Lcd_Data
+              120A  118A         
+   904  07E5  2FE6               	goto	l2750
+   905                           	line	125
+   906                           	
+   907  07E6                     l713:	
+   908                           	line	126
+   909                           	
+   910  07E6                     l2750:	
+   911                           ;MATRIX KEYPAD.c: 125: }
+   912                           ;MATRIX KEYPAD.c: 126: if ((RC0==1)&&(RC7==1))
+   913  07E6  1283               	bcf	status, 5	;RP0=0, select bank0
+   914  07E7  1303               	bcf	status, 6	;RP1=0, select bank0
+   915  07E8  1C07               	btfss	(56/8),(56)&7
+   916  07E9  2FEB               	goto	u2471
+   917  07EA  2FEC               	goto	u2470
+   918  07EB                     u2471:
+   919  07EB  2EE3               	goto	l702
+   920  07EC                     u2470:
+   921                           	
+   922  07EC                     l2752:	
+   923  07EC  1F87               	btfss	(63/8),(63)&7
+   924  07ED  2FEF               	goto	u2481
+   925  07EE  2FF0               	goto	u2480
+   926  07EF                     u2481:
+   927  07EF  2EE3               	goto	l702
+   928  07F0                     u2480:
+   929                           	line	128
+   930                           	
+   931  07F0                     l2754:	
+   932                           ;MATRIX KEYPAD.c: 127: {
+   933                           ;MATRIX KEYPAD.c: 128: Lcd_Command(0XC7);
+   934  07F0  30C7               	movlw	(0C7h)
+   935  07F1  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+   936                           	line	129
+   937                           ;MATRIX KEYPAD.c: 129: Lcd_Data('#');
+   938  07F6  3023               	movlw	(023h)
+   939  07F7  120A  118A  267F   	fcall	_Lcd_Data
+              120A  118A         
+   940  07FC  2EE3               	goto	l702
+   941                           	line	130
+   942                           	
+   943  07FD                     l714:	
+   944  07FD  2EE3               	goto	l702
+   945                           	line	132
+   946                           	
+   947  07FE                     l715:	
+   948                           	line	59
+   949  07FE  2EE3               	goto	l702
+   950                           	
+   951  07FF                     l716:	
+   952                           	line	133
+   953                           	
+   954  07FF                     l717:	
+   955  07FF  0008               	return
+   956                           	opt stack 0
+   957                           GLOBAL	__end_of_READ_SWITCHES
+   958  0800                     	__end_of_READ_SWITCHES:
+   959 ;; =============== function _READ_SWITCHES ends ============
+   960                           
+   961                           	signat	_READ_SWITCHES,89
+   962                           	global	_Lcd_Intialization
+   963                           psect	text114,local,class=CODE,delta=2
+   964                           global __ptext114
+   965  061C                     __ptext114:
+   966                           
+   967 ;; *************** function _Lcd_Intialization *****************
+   968 ;; Defined at:
+   969 ;;		line 51 in file "E:\02-CODING\05-LYCASOFT CODING\02-CODING\24-MATRIX KEYPAD\CODE\MATRIX KEYPAD.c"
+   970 ;; Parameters:    Size  Location     Type
+   971 ;;		None
+   972 ;; Auto vars:     Size  Location     Type
+   973 ;;		None
+   974 ;; Return value:  Size  Location     Type
+   975 ;;		None               void
+   976 ;; Registers used:
+   977 ;;		wreg, status,2, status,0, pclath, cstack
+   978 ;; Tracked objects:
+   979 ;;		On entry : 0/0
+   980 ;;		On exit  : 0/0
+   981 ;;		Unchanged: 0/0
+   982 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   983 ;;      Params:         0       0       0       0       0
+   984 ;;      Locals:         0       0       0       0       0
+   985 ;;      Temps:          0       0       0       0       0
+   986 ;;      Totals:         0       0       0       0       0
+   987 ;;Total ram usage:        0 bytes
+   988 ;; Hardware stack levels used:    1
+   989 ;; Hardware stack levels required when called:    1
+   990 ;; This function calls:
+   991 ;;		_Lcd_Command
+   992 ;; This function is called by:
+   993 ;;		_main
+   994 ;; This function uses a non-reentrant model
+   995 ;;
+   996                           psect	text114
+   997                           	file	"E:\02-CODING\05-LYCASOFT CODING\02-CODING\24-MATRIX KEYPAD\CODE\MATRIX KEYPAD.c"
+   998                           	line	51
+   999                           	global	__size_of_Lcd_Intialization
+  1000  0013                     	__size_of_Lcd_Intialization	equ	__end_of_Lcd_Intialization-_Lcd_Intialization
+  1001                           	
+  1002  061C                     _Lcd_Intialization:	
+  1003                           	opt	stack 6
+  1004                           ; Regs used in _Lcd_Intialization: [wreg+status,2+status,0+pclath+cstack]
+  1005                           	line	52
+  1006                           	
+  1007  061C                     l2676:	
+  1008                           ;MATRIX KEYPAD.c: 52: Lcd_Command(0x02);
+  1009  061C  3002               	movlw	(02h)
+  1010  061D  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+  1011                           	line	53
+  1012                           ;MATRIX KEYPAD.c: 53: Lcd_Command(0x28);
+  1013  0622  3028               	movlw	(028h)
+  1014  0623  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+  1015                           	line	54
+  1016                           ;MATRIX KEYPAD.c: 54: Lcd_Command(0x0c);
+  1017  0628  300C               	movlw	(0Ch)
+  1018  0629  120A  118A  2650   	fcall	_Lcd_Command
+              120A  118A         
+  1019                           	line	55
+  1020                           	
+  1021  062E                     l699:	
+  1022  062E  0008               	return
+  1023                           	opt stack 0
+  1024                           GLOBAL	__end_of_Lcd_Intialization
+  1025  062F                     	__end_of_Lcd_Intialization:
+  1026 ;; =============== function _Lcd_Intialization ends ============
+  1027                           
+  1028                           	signat	_Lcd_Intialization,88
+  1029                           	global	_Lcd_String
+  1030                           psect	text115,local,class=CODE,delta=2
+  1031                           global __ptext115
+  1032  062F                     __ptext115:
+  1033                           
+  1034 ;; *************** function _Lcd_String *****************
+  1035 ;; Defined at:
+  1036 ;;		line 43 in file "E:\02-CODING\05-LYCASOFT CODING\02-CODING\24-MATRIX KEYPAD\CODE\MATRIX KEYPAD.c"
+  1037 ;; Parameters:    Size  Location     Type
+  1038 ;;  Str             1    wreg     PTR const unsigned char 
+  1039 ;;		 -> STR_2(8), STR_1(10), 
+  1040 ;; Auto vars:     Size  Location     Type
+  1041 ;;  Str             1    4[COMMON] PTR const unsigned char 
+  1042 ;;		 -> STR_2(8), STR_1(10), 
+  1043 ;; Return value:  Size  Location     Type
+  1044 ;;		None               void
+  1045 ;; Registers used:
+  1046 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1047 ;; Tracked objects:
+  1048 ;;		On entry : 0/0
+  1049 ;;		On exit  : 0/0
+  1050 ;;		Unchanged: 0/0
+  1051 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1052 ;;      Params:         0       0       0       0       0
+  1053 ;;      Locals:         1       0       0       0       0
+  1054 ;;      Temps:          1       0       0       0       0
+  1055 ;;      Totals:         2       0       0       0       0
+  1056 ;;Total ram usage:        2 bytes
+  1057 ;; Hardware stack levels used:    1
+  1058 ;; Hardware stack levels required when called:    1
+  1059 ;; This function calls:
+  1060 ;;		_Lcd_Data
+  1061 ;; This function is called by:
+  1062 ;;		_main
+  1063 ;; This function uses a non-reentrant model
+  1064 ;;
+  1065                           psect	text115
+  1066                           	file	"E:\02-CODING\05-LYCASOFT CODING\02-CODING\24-MATRIX KEYPAD\CODE\MATRIX KEYPAD.c"
+  1067                           	line	43
+  1068                           	global	__size_of_Lcd_String
+  1069  0021                     	__size_of_Lcd_String	equ	__end_of_Lcd_String-_Lcd_String
+  1070                           	
+  1071  062F                     _Lcd_String:	
+  1072                           	opt	stack 6
+  1073                           ; Regs used in _Lcd_String: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1074                           ;Lcd_String@Str stored from wreg
+  1075  062F  00F4               	movwf	(Lcd_String@Str)
+  1076                           	line	44
+  1077                           	
+  1078  0630                     l2668:	
+  1079                           ;MATRIX KEYPAD.c: 44: while(*Str != 0)
+  1080  0630  2E42               	goto	l2674
+  1081                           	
+  1082  0631                     l694:	
+  1083                           	line	46
+  1084                           	
+  1085  0631                     l2670:	
+  1086                           ;MATRIX KEYPAD.c: 45: {
+  1087                           ;MATRIX KEYPAD.c: 46: Lcd_Data(*Str++);
+  1088  0631  0874               	movf	(Lcd_String@Str),w
+  1089  0632  0084               	movwf	fsr0
+  1090  0633  120A  118A  2003   	fcall	stringdir
+              120A  118A         
+  1091  0638  120A  118A  267F   	fcall	_Lcd_Data
+              120A  118A         
+  1092                           	
+  1093  063D                     l2672:	
+  1094  063D  3001               	movlw	(01h)
+  1095  063E  00F3               	movwf	(??_Lcd_String+0)+0
+  1096  063F  0873               	movf	(??_Lcd_String+0)+0,w
+  1097  0640  07F4               	addwf	(Lcd_String@Str),f
+  1098  0641  2E42               	goto	l2674
+  1099                           	line	47
+  1100                           	
+  1101  0642                     l693:	
+  1102                           	line	44
+  1103                           	
+  1104  0642                     l2674:	
+  1105  0642  0874               	movf	(Lcd_String@Str),w
+  1106  0643  0084               	movwf	fsr0
+  1107  0644  120A  118A  2003   	fcall	stringdir
+              120A  118A         
+  1108  0649  3800               	iorlw	0
+  1109  064A  1D03               	skipz
+  1110  064B  2E4D               	goto	u2241
+  1111  064C  2E4E               	goto	u2240
+  1112  064D                     u2241:
+  1113  064D  2E31               	goto	l2670
+  1114  064E                     u2240:
+  1115  064E  2E4F               	goto	l696
+  1116                           	
+  1117  064F                     l695:	
+  1118                           	line	48
+  1119                           	
+  1120  064F                     l696:	
+  1121  064F  0008               	return
+  1122                           	opt stack 0
+  1123                           GLOBAL	__end_of_Lcd_String
+  1124  0650                     	__end_of_Lcd_String:
+  1125 ;; =============== function _Lcd_String ends ============
+  1126                           
+  1127                           	signat	_Lcd_String,4216
+  1128                           	global	_Lcd_Data
+  1129                           psect	text116,local,class=CODE,delta=2
+  1130                           global __ptext116
+  1131  067F                     __ptext116:
+  1132                           
+  1133 ;; *************** function _Lcd_Data *****************
+  1134 ;; Defined at:
+  1135 ;;		line 28 in file "E:\02-CODING\05-LYCASOFT CODING\02-CODING\24-MATRIX KEYPAD\CODE\MATRIX KEYPAD.c"
+  1136 ;; Parameters:    Size  Location     Type
+  1137 ;;  Data            1    wreg     const unsigned char 
+  1138 ;; Auto vars:     Size  Location     Type
+  1139 ;;  Data            1    2[COMMON] const unsigned char 
+  1140 ;; Return value:  Size  Location     Type
+  1141 ;;		None               void
+  1142 ;; Registers used:
+  1143 ;;		wreg, status,2, status,0
+  1144 ;; Tracked objects:
+  1145 ;;		On entry : 0/0
+  1146 ;;		On exit  : 0/0
+  1147 ;;		Unchanged: 0/0
+  1148 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1149 ;;      Params:         0       0       0       0       0
+  1150 ;;      Locals:         1       0       0       0       0
+  1151 ;;      Temps:          2       0       0       0       0
+  1152 ;;      Totals:         3       0       0       0       0
+  1153 ;;Total ram usage:        3 bytes
+  1154 ;; Hardware stack levels used:    1
+  1155 ;; This function calls:
+  1156 ;;		Nothing
+  1157 ;; This function is called by:
+  1158 ;;		_Lcd_String
+  1159 ;;		_READ_SWITCHES
+  1160 ;; This function uses a non-reentrant model
+  1161 ;;
+  1162                           psect	text116
+  1163                           	file	"E:\02-CODING\05-LYCASOFT CODING\02-CODING\24-MATRIX KEYPAD\CODE\MATRIX KEYPAD.c"
+  1164                           	line	28
+  1165                           	global	__size_of_Lcd_Data
+  1166  002F                     	__size_of_Lcd_Data	equ	__end_of_Lcd_Data-_Lcd_Data
+  1167                           	
+  1168  067F                     _Lcd_Data:	
+  1169                           	opt	stack 6
+  1170                           ; Regs used in _Lcd_Data: [wreg+status,2+status,0]
+  1171                           ;Lcd_Data@Data stored from wreg
+  1172  067F  00F2               	movwf	(Lcd_Data@Data)
+  1173                           	line	29
+  1174                           	
+  1175  0680                     l2648:	
+  1176                           ;MATRIX KEYPAD.c: 29: PORTD = (Data & 0XF0);
+  1177  0680  0872               	movf	(Lcd_Data@Data),w
+  1178  0681  39F0               	andlw	0F0h
+  1179  0682  1283               	bcf	status, 5	;RP0=0, select bank0
+  1180  0683  1303               	bcf	status, 6	;RP1=0, select bank0
+  1181  0684  0088               	movwf	(8)	;volatile
+  1182                           	line	30
+  1183                           	
+  1184  0685                     l2650:	
+  1185                           ;MATRIX KEYPAD.c: 30: RD2 = 1;
+  1186  0685  1508               	bsf	(66/8),(66)&7
+  1187                           	line	31
+  1188                           	
+  1189  0686                     l2652:	
+  1190                           ;MATRIX KEYPAD.c: 31: RD3 = 1;
+  1191  0686  1588               	bsf	(67/8),(67)&7
+  1192                           	line	32
+  1193                           	
+  1194  0687                     l2654:	
+  1195                           ;MATRIX KEYPAD.c: 32: _delay((unsigned long)((5)*(20e6/4000.0)));
+  1196                           	opt asmopt_off
+  1197  0687  3021               movlw	33
+  1198  0688  00F1               movwf	((??_Lcd_Data+0)+0+1),f
+  1199  0689  3076               	movlw	118
+  1200  068A  00F0               movwf	((??_Lcd_Data+0)+0),f
+  1201  068B                     u2497:
+  1202  068B  0BF0               	decfsz	((??_Lcd_Data+0)+0),f
+  1203  068C  2E8B               	goto	u2497
+  1204  068D  0BF1               	decfsz	((??_Lcd_Data+0)+0+1),f
+  1205  068E  2E8B               	goto	u2497
+  1206  068F  0064               	clrwdt
+  1207                           opt asmopt_on
+  1208                           
+  1209                           	line	33
+  1210                           	
+  1211  0690                     l2656:	
+  1212                           ;MATRIX KEYPAD.c: 33: RD3 = 0;
+  1213  0690  1283               	bcf	status, 5	;RP0=0, select bank0
+  1214  0691  1303               	bcf	status, 6	;RP1=0, select bank0
+  1215  0692  1188               	bcf	(67/8),(67)&7
+  1216                           	line	35
+  1217                           	
+  1218  0693                     l2658:	
+  1219                           ;MATRIX KEYPAD.c: 35: PORTD = ((Data<<4) & 0xF0);
+  1220  0693  0872               	movf	(Lcd_Data@Data),w
+  1221  0694  00F0               	movwf	(??_Lcd_Data+0)+0
+  1222  0695  3003               	movlw	(04h)-1
+  1223  0696                     u2235:
+  1224  0696  1003               	clrc
+  1225  0697  0DF0               	rlf	(??_Lcd_Data+0)+0,f
+  1226  0698  3EFF               	addlw	-1
+  1227  0699  1D03               	skipz
+  1228  069A  2E96               	goto	u2235
+  1229  069B  1003               	clrc
+  1230  069C  0D70               	rlf	(??_Lcd_Data+0)+0,w
+  1231  069D  39F0               	andlw	0F0h
+  1232  069E  0088               	movwf	(8)	;volatile
+  1233                           	line	36
+  1234                           	
+  1235  069F                     l2660:	
+  1236                           ;MATRIX KEYPAD.c: 36: RD2 = 1;
+  1237  069F  1508               	bsf	(66/8),(66)&7
+  1238                           	line	37
+  1239                           	
+  1240  06A0                     l2662:	
+  1241                           ;MATRIX KEYPAD.c: 37: RD3 = 1;
+  1242  06A0  1588               	bsf	(67/8),(67)&7
+  1243                           	line	38
+  1244                           	
+  1245  06A1                     l2664:	
+  1246                           ;MATRIX KEYPAD.c: 38: _delay((unsigned long)((5)*(20e6/4000.0)));
+  1247                           	opt asmopt_off
+  1248  06A1  3021               movlw	33
+  1249  06A2  00F1               movwf	((??_Lcd_Data+0)+0+1),f
+  1250  06A3  3076               	movlw	118
+  1251  06A4  00F0               movwf	((??_Lcd_Data+0)+0),f
+  1252  06A5                     u2507:
+  1253  06A5  0BF0               	decfsz	((??_Lcd_Data+0)+0),f
+  1254  06A6  2EA5               	goto	u2507
+  1255  06A7  0BF1               	decfsz	((??_Lcd_Data+0)+0+1),f
+  1256  06A8  2EA5               	goto	u2507
+  1257  06A9  0064               	clrwdt
+  1258                           opt asmopt_on
+  1259                           
+  1260                           	line	39
+  1261                           	
+  1262  06AA                     l2666:	
+  1263                           ;MATRIX KEYPAD.c: 39: RD3 = 0;
+  1264  06AA  1283               	bcf	status, 5	;RP0=0, select bank0
+  1265  06AB  1303               	bcf	status, 6	;RP1=0, select bank0
+  1266  06AC  1188               	bcf	(67/8),(67)&7
+  1267                           	line	40
+  1268                           	
+  1269  06AD                     l690:	
+  1270  06AD  0008               	return
+  1271                           	opt stack 0
+  1272                           GLOBAL	__end_of_Lcd_Data
+  1273  06AE                     	__end_of_Lcd_Data:
+  1274 ;; =============== function _Lcd_Data ends ============
+  1275                           
+  1276                           	signat	_Lcd_Data,4216
+  1277                           	global	_Lcd_Command
+  1278                           psect	text117,local,class=CODE,delta=2
+  1279                           global __ptext117
+  1280  0650                     __ptext117:
+  1281                           
+  1282 ;; *************** function _Lcd_Command *****************
+  1283 ;; Defined at:
+  1284 ;;		line 13 in file "E:\02-CODING\05-LYCASOFT CODING\02-CODING\24-MATRIX KEYPAD\CODE\MATRIX KEYPAD.c"
+  1285 ;; Parameters:    Size  Location     Type
+  1286 ;;  cmd             1    wreg     const unsigned char 
+  1287 ;; Auto vars:     Size  Location     Type
+  1288 ;;  cmd             1    2[COMMON] const unsigned char 
+  1289 ;; Return value:  Size  Location     Type
+  1290 ;;		None               void
+  1291 ;; Registers used:
+  1292 ;;		wreg, status,2, status,0
+  1293 ;; Tracked objects:
+  1294 ;;		On entry : 0/0
+  1295 ;;		On exit  : 0/0
+  1296 ;;		Unchanged: 0/0
+  1297 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1298 ;;      Params:         0       0       0       0       0
+  1299 ;;      Locals:         1       0       0       0       0
+  1300 ;;      Temps:          2       0       0       0       0
+  1301 ;;      Totals:         3       0       0       0       0
+  1302 ;;Total ram usage:        3 bytes
+  1303 ;; Hardware stack levels used:    1
+  1304 ;; This function calls:
+  1305 ;;		Nothing
+  1306 ;; This function is called by:
+  1307 ;;		_Lcd_Intialization
+  1308 ;;		_READ_SWITCHES
+  1309 ;;		_main
+  1310 ;; This function uses a non-reentrant model
+  1311 ;;
+  1312                           psect	text117
+  1313                           	file	"E:\02-CODING\05-LYCASOFT CODING\02-CODING\24-MATRIX KEYPAD\CODE\MATRIX KEYPAD.c"
+  1314                           	line	13
+  1315                           	global	__size_of_Lcd_Command
+  1316  002F                     	__size_of_Lcd_Command	equ	__end_of_Lcd_Command-_Lcd_Command
+  1317                           	
+  1318  0650                     _Lcd_Command:	
+  1319                           	opt	stack 6
+  1320                           ; Regs used in _Lcd_Command: [wreg+status,2+status,0]
+  1321                           ;Lcd_Command@cmd stored from wreg
+  1322  0650  00F2               	movwf	(Lcd_Command@cmd)
+  1323                           	line	14
+  1324                           	
+  1325  0651                     l2628:	
+  1326                           ;MATRIX KEYPAD.c: 14: PORTD = (cmd & 0XF0);
+  1327  0651  0872               	movf	(Lcd_Command@cmd),w
+  1328  0652  39F0               	andlw	0F0h
+  1329  0653  1283               	bcf	status, 5	;RP0=0, select bank0
+  1330  0654  1303               	bcf	status, 6	;RP1=0, select bank0
+  1331  0655  0088               	movwf	(8)	;volatile
+  1332                           	line	15
+  1333                           	
+  1334  0656                     l2630:	
+  1335                           ;MATRIX KEYPAD.c: 15: RD2 = 0;
+  1336  0656  1108               	bcf	(66/8),(66)&7
+  1337                           	line	16
+  1338                           	
+  1339  0657                     l2632:	
+  1340                           ;MATRIX KEYPAD.c: 16: RD3 = 1;
+  1341  0657  1588               	bsf	(67/8),(67)&7
+  1342                           	line	17
+  1343                           	
+  1344  0658                     l2634:	
+  1345                           ;MATRIX KEYPAD.c: 17: _delay((unsigned long)((5)*(20e6/4000.0)));
+  1346                           	opt asmopt_off
+  1347  0658  3021               movlw	33
+  1348  0659  00F1               movwf	((??_Lcd_Command+0)+0+1),f
+  1349  065A  3076               	movlw	118
+  1350  065B  00F0               movwf	((??_Lcd_Command+0)+0),f
+  1351  065C                     u2517:
+  1352  065C  0BF0               	decfsz	((??_Lcd_Command+0)+0),f
+  1353  065D  2E5C               	goto	u2517
+  1354  065E  0BF1               	decfsz	((??_Lcd_Command+0)+0+1),f
+  1355  065F  2E5C               	goto	u2517
+  1356  0660  0064               	clrwdt
+  1357                           opt asmopt_on
+  1358                           
+  1359                           	line	18
+  1360                           	
+  1361  0661                     l2636:	
+  1362                           ;MATRIX KEYPAD.c: 18: RD3 = 0;
+  1363  0661  1283               	bcf	status, 5	;RP0=0, select bank0
+  1364  0662  1303               	bcf	status, 6	;RP1=0, select bank0
+  1365  0663  1188               	bcf	(67/8),(67)&7
+  1366                           	line	20
+  1367                           	
+  1368  0664                     l2638:	
+  1369                           ;MATRIX KEYPAD.c: 20: PORTD = ((cmd<<4) & 0xF0);
+  1370  0664  0872               	movf	(Lcd_Command@cmd),w
+  1371  0665  00F0               	movwf	(??_Lcd_Command+0)+0
+  1372  0666  3003               	movlw	(04h)-1
+  1373  0667                     u2225:
+  1374  0667  1003               	clrc
+  1375  0668  0DF0               	rlf	(??_Lcd_Command+0)+0,f
+  1376  0669  3EFF               	addlw	-1
+  1377  066A  1D03               	skipz
+  1378  066B  2E67               	goto	u2225
+  1379  066C  1003               	clrc
+  1380  066D  0D70               	rlf	(??_Lcd_Command+0)+0,w
+  1381  066E  39F0               	andlw	0F0h
+  1382  066F  0088               	movwf	(8)	;volatile
+  1383                           	line	21
+  1384                           	
+  1385  0670                     l2640:	
+  1386                           ;MATRIX KEYPAD.c: 21: RD2 = 0;
+  1387  0670  1108               	bcf	(66/8),(66)&7
+  1388                           	line	22
+  1389                           	
+  1390  0671                     l2642:	
+  1391                           ;MATRIX KEYPAD.c: 22: RD3 = 1;
+  1392  0671  1588               	bsf	(67/8),(67)&7
+  1393                           	line	23
+  1394                           	
+  1395  0672                     l2644:	
+  1396                           ;MATRIX KEYPAD.c: 23: _delay((unsigned long)((5)*(20e6/4000.0)));
+  1397                           	opt asmopt_off
+  1398  0672  3021               movlw	33
+  1399  0673  00F1               movwf	((??_Lcd_Command+0)+0+1),f
+  1400  0674  3076               	movlw	118
+  1401  0675  00F0               movwf	((??_Lcd_Command+0)+0),f
+  1402  0676                     u2527:
+  1403  0676  0BF0               	decfsz	((??_Lcd_Command+0)+0),f
+  1404  0677  2E76               	goto	u2527
+  1405  0678  0BF1               	decfsz	((??_Lcd_Command+0)+0+1),f
+  1406  0679  2E76               	goto	u2527
+  1407  067A  0064               	clrwdt
+  1408                           opt asmopt_on
+  1409                           
+  1410                           	line	24
+  1411                           	
+  1412  067B                     l2646:	
+  1413                           ;MATRIX KEYPAD.c: 24: RD3 = 0;
+  1414  067B  1283               	bcf	status, 5	;RP0=0, select bank0
+  1415  067C  1303               	bcf	status, 6	;RP1=0, select bank0
+  1416  067D  1188               	bcf	(67/8),(67)&7
+  1417                           	line	25
+  1418                           	
+  1419  067E                     l687:	
+  1420  067E  0008               	return
+  1421                           	opt stack 0
+  1422                           GLOBAL	__end_of_Lcd_Command
+  1423  067F                     	__end_of_Lcd_Command:
+  1424 ;; =============== function _Lcd_Command ends ============
+  1425                           
+  1426                           	signat	_Lcd_Command,4216
+  1427                           psect	text118,local,class=CODE,delta=2
+  1428                           global __ptext118
+  1429  0000                     __ptext118:
+  1430                           	global	btemp
+  1431  007E                     	btemp set 07Eh
+  1432                           
+  1433                           	DABS	1,126,2	;btemp
+  1434                           	global	wtemp0
+  1435  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Wed Oct 24 14:59:34 2018
+
+                         pc 0002                          _RD 0C60                          _WR 0C61  
+                        fsr 0004                         l710 079F                         l702 06E3  
+                       l711 07B8                         l703 06FC                         l712 07CF  
+                       l704 0713                         l720 06D9                         l713 07E6  
+                       l705 072A                         l721 06DF                         l714 07FD  
+                       l706 0741                         l722 06E0                         l715 07FE  
+                       l707 075A                         l723 06E0                         l716 07FF  
+                       l708 0771                         l717 07FF                         l709 0788  
+                       l690 06AD                         l693 0642                         l694 0631  
+                       l687 067E                         l695 064F                         l696 064F  
+                       l699 062E                         _GIE 005F                         _RC0 0038  
+                       _RC1 0039                         _RC2 003A                         _RD2 0042  
+                       _RC4 003C                         _RD3 0043                         _RC5 003D  
+                       _RC6 003E                         _RC7 003F                         fsr0 0004  
+       __end_of_Lcd_Command 067F                        l2700 0730                        l2630 0656  
+                      l2710 074D                        l2702 0734                        l2640 0670  
+                      l2632 0657                        l2720 0777                        l2712 075A  
+                      l2704 0741                        l2642 0671                        l2634 0658  
+                      l2650 0685                        l2730 079F                        l2722 077B  
+                      l2714 0760                        l2706 0745                        l2644 0672  
+                      l2636 0661                        l2628 0651                        l2660 069F  
+                      l2652 0686                        l2740 07BE                        l2732 07A3  
+                      l2724 0788                        l2716 0764                        l2708 0749  
+                      l2646 067B                        l2638 0664                        l2662 06A0  
+                      l2654 0687                        l2670 0631                        l2750 07E6  
+                      l2742 07C2                        l2734 07A7                        l2726 078E  
+                      l2718 0771                        l2664 06A1                        l2656 0690  
+                      l2648 0680                        l2672 063D                        l2752 07EC  
+                      l2744 07CF                        l2736 07AB                        l2728 0792  
+                      l2680 06E7                        l2760 06B8                        l2666 06AA  
+                      l2658 0693                        l2674 0642                        l2754 07F0  
+                      l2746 07D5                        l2738 07B8                        l2690 0706  
+                      l2682 06EB                        l2770 06D2                        l2762 06BB  
+                      l2668 0630                        l2676 061C                        l2748 07D9  
+                      l2692 0713                        l2684 06EF                        l2772 06D9  
+                      l2764 06C0                        l2756 06AE                        l2694 0719  
+                      l2686 06FC                        l2678 06E3                        l2766 06C6  
+                      l2758 06B4                        l2696 071D                        l2688 0702  
+                      l2768 06CC                        l2698 072A                        STR_1 0009  
+                      STR_2 0013                        u2300 071D                        u2301 071C  
+                      u2310 0730                        u2311 072F                        u2240 064E  
+                      u2400 0792                        u2320 0734                        u2225 0667  
+                      u2241 064D                        u2401 0791                        u2321 0733  
+                      u2410 07A7                        u2330 0749                        u2250 06EB  
+                      u2235 0696                        u2411 07A6                        u2331 0748  
+                      u2251 06EA                        u2420 07AB                        u2340 074D  
+                      u2260 06EF                        u2421 07AA                        u2341 074C  
+                      u2261 06EE                        u2430 07BE                        u2350 0760  
+                      u2270 0702                        u2431 07BD                        u2351 075F  
+                      u2271 0701                        u2440 07C2                        u2360 0764  
+                      u2280 0706                        u2441 07C1                        u2361 0763  
+                      u2281 0705                        u2450 07D5                        u2370 0777  
+                      u2290 0719                        u2507 06A5                        u2451 07D4  
+                      u2371 0776                        u2291 0718                        u2460 07D9  
+                      u2380 077B                        u2517 065C                        u2461 07D8  
+                      u2381 077A                        u2470 07EC                        u2390 078E  
+                      u2527 0676                        u2471 07EB                        u2391 078D  
+                      u2480 07F0                        u2481 07EF                        u2497 068B  
+                      _WREN 0C62                        _main 06AE                        btemp 007E  
+                      start 0000      __size_of_READ_SWITCHES 011D                  _Lcd_String 062F  
+                     ?_main 0070                       _EEADR 010D                       _CARRY 0018  
+                     _PORTC 0007                       _PORTD 0008                       _TRISC 0087  
+                     _TRISD 0088                       pclath 000A                       status 0003  
+                     wtemp0 007E            __end_of_Lcd_Data 06AE                __end_of_main 06E3  
+         _Lcd_Intialization 061C          ?_Lcd_Intialization 0070                 _Lcd_Command 0650  
+                    ??_main 0075         ??_Lcd_Intialization 0073                      _EEDATA 010C  
+                    _EECON1 018C                      _EECON2 018D               _READ_SWITCHES 06E3  
+ __end_of_Lcd_Intialization 062F                 ?_Lcd_String 0070              ?_READ_SWITCHES 0070  
+            __pcstackCOMMON 0070                   ?_Lcd_Data 0070         __size_of_Lcd_String 0021  
+__size_of_Lcd_Intialization 0013                  __pmaintext 06AE             ??_READ_SWITCHES 0073  
+                ??_Lcd_Data 0070                ?_Lcd_Command 0070        end_of_initialization 0618  
+              ??_Lcd_String 0073          __end_of_Lcd_String 0650         start_initialization 0618  
+         __size_of_Lcd_Data 002F        __size_of_Lcd_Command 002F               Lcd_String@Str 0074  
+                 __ptext112 0000                   __ptext113 06E3                   __ptext114 061C  
+                 __ptext115 062F                   __ptext116 067F                   __ptext117 0650  
+                 __ptext118 0000                   __pstrings 0003                Lcd_Data@Data 0072  
+     __end_of_READ_SWITCHES 0800                 __stringbase 0008                    _Lcd_Data 067F  
+             __size_of_main 0035                   stringcode 0003               ??_Lcd_Command 0070  
+            Lcd_Command@cmd 0072                    stringdir 0003                    stringtab 0003  
